@@ -38,19 +38,11 @@ class Game():
         move = input(f"Player {self.turn}, enter a valid move (example: A1): ").lower()
         
         if move in {'a1', 'a2', 'a3', 'b1', 'b2', 'b3', 'c1', 'c2', 'c3'} and self.board[move] == None:
-        #   print(f"Previous board value: {self.board[move]}")
           self.board[move] = self.turn
-        #   print(f"New board value: {self.board[move]}")
           break
 
         else:
            print('That is an invalid input, try again!')
-
-    def switch_turn(self):
-      if self.turn == 'X':
-        self.turn = 'O'
-      else:
-        self.turn = 'X'
       
 
     def check_winner(self):
@@ -90,123 +82,33 @@ class Game():
 
       if filled == 9 and self.winner == 'None':
           self.tie = True
-          print('Game has ended in a tie.  Play again?')
+          print('Game has ended in a tie.')
           
+    def switch_turn(self):
+      if self.turn == 'X':
+        self.turn = 'O'
+      else:
+        self.turn = 'X'
 
+    def play_game(self):
+      
+      print('Welcome to Tic Tac Toe, want to play?')
 
-    # def play_game(self, instance):
-    #   print('Welcome to Tic Tac Toe')
-    #   instance.print_board()
-    #   instance.print_message()
-    #   instance.get_move()
+      while self.winner == 'None' and self.tie == False:
+        self.print_board()
+        self.print_message()
+        self.get_move()
+        self.check_winner()
+        self.check_tie()
+        self.switch_turn()
 
-           
-           
-           
-        
+      print('Game over, do you want to play again?')
 
     
 
 game_instance = Game()
 
-game_instance1 = Game()
-
-# game_instance.play_game(game_instance1)
-
-# game_instance.print_board()
-
-game_instance.print_message()
-
-game_instance.get_move()
-
-game_instance.print_board()
-
-game_instance.check_winner()
-
-game_instance.check_tie()
-
-game_instance.switch_turn()
-
-game_instance.get_move()
-
-game_instance.print_board()
-
-game_instance.check_winner()
-
-game_instance.check_tie()
-
-game_instance.switch_turn()
-
-game_instance.get_move()
-
-game_instance.print_board()
-
-game_instance.check_winner()
-
-game_instance.check_tie()
-
-game_instance.switch_turn()
-
-game_instance.get_move()
-
-game_instance.print_board()
-
-game_instance.check_winner()
-
-game_instance.check_tie()
-
-game_instance.switch_turn()
-
-game_instance.get_move()
-
-game_instance.print_board()
-
-game_instance.check_winner()
-
-game_instance.check_tie()
-
-game_instance.switch_turn()
-
-game_instance.get_move()
-
-game_instance.print_board()
-
-game_instance.check_winner()
-
-game_instance.check_tie()
-
-game_instance.switch_turn()
-
-game_instance.get_move()
-
-game_instance.print_board()
-
-game_instance.check_winner()
-
-game_instance.check_tie()
-
-game_instance.switch_turn()
-
-game_instance.get_move()
-
-game_instance.print_board()
-
-game_instance.check_winner()
-
-game_instance.check_tie()
-
-game_instance.switch_turn()
-
-game_instance.get_move()
-
-game_instance.print_board()
-
-game_instance.check_winner()
-
-game_instance.check_tie()
-
-game_instance.switch_turn()
-
+game_instance.play_game()
 
 
 
